@@ -12,6 +12,15 @@ repositories {
     mavenCentral()
 }
 
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.springframework" && requested.name.startsWith("spring-")) {
+            useVersion("5.3.20")
+            because("CVE-2022-22971: Upgrade Spring Framework to 5.3.20")
+        }
+    }
+}
+
 tasks.register("downloadNewrelic") {
     doLast {
             val newrelicDir = file("newrelic")
