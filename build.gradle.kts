@@ -44,6 +44,8 @@ dependencies {
     // Upgrade to latest Gson version
     implementation ("com.google.code.gson:gson:2.8.9")
 
+    // Upgrade logback-core to address CVE-2025-11226 (ACE vulnerability)
+    implementation ("ch.qos.logback:logback-core:1.5.19")
 
     implementation ("com.google.guava:guava:18.0")
 
